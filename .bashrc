@@ -1,7 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-source /home/wert/.rvm/scripts/rvm
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -54,7 +53,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto'
+    alias ls='ls -al --color=auto'
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
 fi
@@ -70,7 +69,10 @@ alias search='aptitude search'
 alias nota='cat >>'
 alias servir='python -m SimpleHTTPServer 31416'
 alias Ip='curl http://automation.whatismyip.com/n09230945.asp && echo'
-PS1="[\[\033[32m\]\W]\[\033[0m\]\[\033[1;36m\]\u\[\033[1;33m\]-> \[\033[0m\]"
+
+source ~/git-prompt.sh
+PS1="[\[\033[32m\]\W]\[\033[0m\]\[\033[1;36m\]\u\[\033[1;31m\] $(__git_ps1 "(%s)")\[\033[1;33m\]-> \[\033[0m\]"
+
 # some more ls aliases
 alias ll='ls -l'
 alias espacio='df -h | grep home'
@@ -125,4 +127,9 @@ then
 fi
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/lib
-export GIT_EDITOR="sublime --wait"
+export GIT_EDITOR="subl --wait"
+
+export NVM_DIR="/home/nico/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export http_proxy="https://nvaraschin%40buenosaires.gob.ar:W2-o6egd@10.200.72.35:8080"
+export https_proxy="http://nvaraschin%40buenosaires.gob.ar:W2-o6egd@10.200.72.35:8080"
