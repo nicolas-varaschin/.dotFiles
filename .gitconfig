@@ -1,0 +1,7 @@
+[user]
+	email = nicovaras22@gmail.com
+	name = Nico Varaschin
+[alias]
+    st = status
+    ci = commit
+    l = log -n 10 --pretty=format:\"%Cblue[%h]%Cgreen %<(25)%an%Creset%<(95)> %s %ar\"
