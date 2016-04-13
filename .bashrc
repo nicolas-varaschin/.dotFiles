@@ -131,5 +131,3 @@ export GIT_EDITOR="subl --wait"
 
 export NVM_DIR="/home/nico/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export http_proxy="https://nvaraschin%40buenosaires.gob.ar:W2-o6egd@10.200.72.35:8080"
-export https_proxy="http://nvaraschin%40buenosaires.gob.ar:W2-o6egd@10.200.72.35:8080"
