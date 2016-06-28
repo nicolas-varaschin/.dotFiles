@@ -61,42 +61,19 @@ fi
 
 function cdd { cd "${1}";ls;}
 alias cd='cdd'
-alias d1='cd /media/sda1/'
-alias d2='cd /media/sda2/'
-alias inst='sudo apt-get install'
-alias colorearBash='PS1="[\[\033[32m\]\W]\[\033[0m\]\[\033[1;36m\]\u\[\033[1;33m\]-> \[\033[0m\]"'
-alias search='aptitude search'
-alias nota='cat >>'
-alias servir='python -m SimpleHTTPServer 31416'
-alias Ip='curl http://automation.whatismyip.com/n09230945.asp && echo'
 
 source ~/git-prompt.sh
 PS1="[\[\033[32m\]\W]\[\033[0m\]\[\033[1;36m\]\u\[\033[1;31m\] $(__git_ps1 "(%s)")\[\033[1;33m\]-> \[\033[0m\]"
 
 # some more ls aliases
 alias ll='ls -l'
-alias espacio='df -h | grep home'
 alias la='ls -A'
 #alias l='ls -CF'
-alias cdpl='cd ~/trunk/platform'
 alias gti='git'
-alias cdcue='cd ~/trunk/cue'
-alias cdreg='cd ~/trunk/reglas-moderacion'
-alias mvns='mvn -P spec-developer eclipse:eclipse -Dmaven.test.skip=true'
-alias mvne='mvn eclipse:eclipse'
-alias planilla='cd /home/nicolas/trunk/meli_items/Planillas > /dev/null; svn up; cd - > /dev/null'
-alias reglas='cd /home/nicolas/trunk/reglas-moderacion > /dev/null; svn up; cd - > /dev/null'
-alias pgrestart='sudo /etc/init.d/postgresql restart'
-alias pgstart='sudo /etc/init.d/postgresql start'
-alias verlog='tail -n1000 /var/log/postgresql/postgresql-9.1-main.log'
 export HISTSIZE=10000
 export HISTCONTROL=erasedups
 shopt -s histappend
 
-function calc
-{
-echo "${1}" | bc -l;
-}
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -119,7 +96,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # export GIT_PS1_SHOWDIRTYSTATE=1
 
 # export PS1='[\[\033[32m\]\W]\[\033[0m\]\[\033[1;36m\]\u\[\033[1;33m\]$(__git_ps1)\[\033[01;34m\] -> \[\033[0m\]'
-PATH=$PATH:/opt/freeling-3.0/bin
 PATH=$PATH:$HOME/clion/bin
 if [ "x$TERM" = "xxterm" ]
 then
