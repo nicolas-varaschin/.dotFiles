@@ -50,7 +50,7 @@ menu(){ # Useless for now ..
   fi
 }
 getip(){
-  ip1=`ip a | grep inet | grep eth0| awk '{print $2}' | awk 'sub(/\/24/,"")'`
+  ip1=`ip a | grep inet | grep eth0| awk '{print $2}' | awk 'sub(/\/16/,"")'`
   echo "%{F$BBLACK}$ip1%{F-}"
 }
 
@@ -60,7 +60,7 @@ getmem(){
 }
 
 getcpu(){
-  cpuvar=`mpstat | awk '$12 ~ /[0-9.]+/ { print $4+$6+$7"%" }'`
+  cpuvar=`mpstat | awk '$12 ~ /[0-9.]+/ { print $1+$3+$4"%" }'`
   echo " %{F$BBLACK}${cpuvar} %{F-}"
 }
 
@@ -69,7 +69,13 @@ net(){ # Connected or nah? ..
   ping=`ping 8.8.8.8 -c 1 | awk '/rtt/ {printf("%d\n",$4 + 0.5)}'`
   test -n "${ping}" && echo " %{F$BBLACK} ${ping}ms %{F-}" || echo "%{F$RED} No Connection %{F-}"
 }
+
+weat(){
+  w=`wget -q -O- http://servicios.lanacion.com.ar/pronostico-del-tiempo/capital-federal/capital-federal | awk '/tempCol1/{print $76}'|python -c "import sys;print sys.stdin.read().split('>')[1].split('\xc2')[0] + ' C'"`
+ echo " %{F$BBLACK}${w} %{F-}"
+}
+
 while :; do
-    echo "$(menu)|%{B$BMAGENTA} CPU: $(getcpu) %{B-}|%{B$BCYAN} RAM: $(getmem) %{B-}| %{c} $(clock) %{r} |%{B$BBLUE} VOL: $(vol) %{B-}|%{B$BWHITE} IP:$(getip) %{B-}|%{B$BGREEN} PING:$(net) %{B-}"
-    sleep 1
-done | lemonbar -p -g 1000x20+460
+    echo "$(menu)|%{B$BMAGENTA} CPU: $(getcpu) %{B-}|%{B$BCYAN} RAM: $(getmem) %{B-}| %{c} $(clock) %{r} |%{B$BBLUE} VOL: $(vol) %{B-}|%{B$BWHITE} IP:$(getip) %{B-}|%{B$BGREEN}$(weat)%{B-}"
+    sleep 0.5
+done | lemonbar -p -g 1000x12+260
