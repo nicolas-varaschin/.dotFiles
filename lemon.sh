@@ -76,6 +76,14 @@ weat(){
 }
 
 while :; do
-    echo "$(menu)|%{B$BMAGENTA} CPU: $(getcpu) %{B-}|%{B$BCYAN} RAM: $(getmem) %{B-}| %{c} $(clock) %{r} |%{B$BBLUE} VOL: $(vol) %{B-}|%{B$BWHITE} IP:$(getip) %{B-}|%{B$BGREEN}$(weat)%{B-}"
+    echo "$(menu)|" \
+         "%{B$BMAGENTA} CPU: $(getcpu) %{B-}|" \
+         "%{B$BCYAN} RAM: $(getmem) %{B-}|" \
+         "`xsel -p | python -c 'import sys; print sys.stdin.read().replace("\n", "")[:50]'`|" \
+         " %{c} $(clock) %{r} |" \
+         "`xsel -b | python -c 'import sys; print sys.stdin.read().replace("\n", "")[:50]'`|" \
+         "%{B$BBLUE} VOL: $(vol) %{B-}|" \
+         "%{B$BWHITE} IP:$(getip) %{B-}|" \
+         "%{B$BGREEN}$(weat)%{B-}"
     sleep 0.5
-done | lemonbar -p -g 1000x12+260
+done | lemonbar -p -g 1600x12
