@@ -1,0 +1,24 @@
+let g:indent_guides_enable_on_vim_startup = 0
+set nospell
+colorscheme monokk
+set guifont=Liberation\ Mono\ 9
+set guioptions-=r
+set vb t_vb=
+source /home/wert/.vim/ms.vim 
+behave mswin
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
+set selection=inclusive
+set nofoldenable

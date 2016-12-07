@@ -1,0 +1,4 @@
+Bundle 'tpope/vim-obsession.git'
+Bundle 'qpkorr/vim-bufkill'
+Bundle 'rking/ag.vim'
+
