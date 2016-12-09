@@ -5,8 +5,8 @@ function fish_prompt
     echo -n "%)"
     set_color -o 4B7D14
     echo -n '['
-    set_color normal
-    set_color C9B963
+    set_color normal 
+    set_color C9B963 
     echo -n (basename (pwd))
     set_color -o 4B7D14
     echo -n ']'
@@ -21,24 +21,13 @@ function fish_prompt
     echo " ➜ "
 end
 function cd
-	builtin cd $argv; and ls -al
+    builtin cd $argv; and ls
 end
 
 function ls
-	command ls -al --color=auto $argv
+	lsicons.py -l $argv
 end
 
 
 export GIT_EDITOR="subl --wait"
 
-function man
-    env \
-        LESS_TERMCAP_mb=(printf "\e[1;31m") \
-        LESS_TERMCAP_md=(printf "\e[1;31m") \
-        LESS_TERMCAP_me=(printf "\e[0m") \
-        LESS_TERMCAP_se=(printf "\e[0m") \
-        LESS_TERMCAP_so=(printf "\e[1;44;33m") \
-        LESS_TERMCAP_ue=(printf "\e[0m") \
-        LESS_TERMCAP_us=(printf "\e[1;32m") \
-            man $argv
-end
