@@ -24,3 +24,11 @@ set selection=inclusive
 set nofoldenable
 :imap jj <Esc>
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'itchyny/lightline.vim'
+vnoremap <C-C> "+y
+noremap <C-C> "+y
+noremap <C-S-C> :BD<CR>
+inoremap <C-C> "+y
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ }
