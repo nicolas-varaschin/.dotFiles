@@ -22,3 +22,5 @@ endfunction
 
 set selection=inclusive
 set nofoldenable
+:imap jj <Esc>
+Plugin 'ryanoasis/vim-devicons'
