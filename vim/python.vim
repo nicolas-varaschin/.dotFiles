@@ -117,7 +117,7 @@ syn match pythonClassParameters "[^,]*" contained contains=pythonBuiltin,pythonB
 
 
 syn match   pythonComment	"#.*$" contains=pythonTodo,@Spell
-syn match   pythonMethod	"\zs[a-zA-Z0-9]\+\ze("
+syn match   pythonMethod	"\zs[_a-zA-Z0-9]\+\ze(" contains=@Spell
 syn keyword pythonTodo		FIXME NOTE NOTES TODO XXX contained
 
 " Triple-quoted strings can contain doctests.
@@ -300,7 +300,7 @@ if version >= 508 || !exists("did_python_syn_inits")
   HiLink pythonConditional	Conditional
   HiLink pythonRepeat		Repeat
   HiLink pythonOperator		Operator
-  HiLink pythonException	Exception
+  "HiLink pythonException	Exception
   "HiLink pythonInclude		Include
   HiLink pythonInclude  Operator
   HiLink pythonDecorator	Define

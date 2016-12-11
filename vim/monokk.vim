@@ -83,10 +83,10 @@ hi SpecialChar     guifg=#F92672               gui=bold
 hi SpecialComment  guifg=#7E8E91               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
 if has("spell")
-    hi SpellBad    guisp=#FF0000 gui=undercurl
-    hi SpellCap    guisp=#7070F0 gui=undercurl
-    hi SpellLocal  guisp=#70F0F0 gui=undercurl
-    hi SpellRare   guisp=#FFFFFF gui=undercurl
+    hi SpellBad    guibg=#FF0000 
+    hi SpellCap    guibg=#4020a0 
+    hi SpellLocal  guibg=#70F0F0 
+    hi SpellRare   guibg=#FFFFFF 
 endif
 hi Statement       guifg=#F92672               gui=bold
 hi StatusLine      guifg=#455354 guibg=fg
@@ -270,6 +270,8 @@ if &t_Co > 255
        hi NonText         ctermfg=239
        hi SpecialKey      ctermfg=239
    endif
+   hi SyntasticErrorLine guibg=#701020 gui=undercurl
+   hi SyntasticWarningLine guibg=#203070 gui=undercurl
 end
 
 " Must be at the end, because of ctermbg=234 bug.

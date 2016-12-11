@@ -20,14 +20,4 @@ function fish_prompt
     set_color -o purple
     echo " ➜ "
 end
-function cd
-    builtin cd $argv; and ls
-end
-
-function ls
-	lsicons.py -l $argv
-end
-
-
-export GIT_EDITOR="subl --wait"
 

@@ -639,7 +639,7 @@
 
     " ctrlp {
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
-            let g:ctrlp_working_path_mode = 'ra'
+            let g:ctrlp_working_path_mode = 0
             nnoremap <silent> <D-t> :CtrlP<CR>
             nnoremap <silent> <D-r> :CtrlPMRU<CR>
             let g:ctrlp_custom_ignore = {
@@ -661,13 +661,13 @@
             if exists("g:ctrlp_user_command")
                 unlet g:ctrlp_user_command
             endif
-            let g:ctrlp_user_command = {
-                \ 'types': {
-                    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-                    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-                \ },
-                \ 'fallback': s:ctrlp_fallback
-            \ }
+            "let g:ctrlp_user_command = {
+                "\ 'types': {
+                    "\ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+                    "\ 2: ['.hg', 'hg --cwd %s locate -I .'],
+                "\ },
+                "\ 'fallback': s:ctrlp_fallback
+            "\ }
 
             if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
                 " CtrlP extensions

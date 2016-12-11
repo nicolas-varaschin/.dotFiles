@@ -61,6 +61,14 @@ fi
 
 function cdd { cd "${1}";ls;}
 alias cd='cdd'
+alias d1='cd /media/sda1/'
+alias d2='cd /media/sda2/'
+alias inst='sudo apt-get install'
+alias colorearBash='PS1="[\[\033[32m\]\W]\[\033[0m\]\[\033[1;36m\]\u\[\033[1;33m\]-> \[\033[0m\]"'
+alias search='aptitude search'
+alias nota='cat >>'
+alias servir='python -m SimpleHTTPServer 31416'
+alias Ip='curl http://automation.whatismyip.com/n09230945.asp && echo'
 
 source ~/git-prompt.sh
 PS1="[\[\033[32m\]\W]\[\033[0m\]\[\033[1;36m\]\u\[\033[1;31m\] $(__git_ps1 "(%s)")\[\033[1;33m\]-> \[\033[0m\]"
@@ -83,12 +91,6 @@ shopt -s histappend
 #fi
 
 
-
-PATH=$PATH:/usr/share/ruby-rvm/bin # Add RVM to PATH for scripting
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-#[[ -s "/home/nicolas/.rvm/scripts/rvm" ]] && source "/home/nicolas/.rvm/scripts/rvm"
-
 # Bash completion
 # if [ -f /etc/bash_completion ]; then
 # . /etc/bash_completion
@@ -96,14 +98,19 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # export GIT_PS1_SHOWDIRTYSTATE=1
 
 # export PS1='[\[\033[32m\]\W]\[\033[0m\]\[\033[1;36m\]\u\[\033[1;33m\]$(__git_ps1)\[\033[01;34m\] -> \[\033[0m\]'
-PATH=$PATH:$HOME/clion/bin
 if [ "x$TERM" = "xxterm" ]
 then
-	    export TERM="xterm-256color"
+      export TERM="xterm-256color"
 fi
-export PATH=/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/lib
+
 export GIT_EDITOR="subl --wait"
 
-export NVM_DIR="/home/nico/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /home/wert/Downloads/google-cloud-sdk/path.bash.inc ]; then
+  source '/home/wert/Downloads/google-cloud-sdk/path.bash.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /home/wert/Downloads/google-cloud-sdk/completion.bash.inc ]; then
+  source '/home/wert/Downloads/google-cloud-sdk/completion.bash.inc'
+fi

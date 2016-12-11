@@ -1,5 +1,5 @@
 let g:indent_guides_enable_on_vim_startup = 0
-set nospell
+"set nospell
 colorscheme monokk
 set guifont=Liberation\ Mono\ 9
 set guioptions-=r
@@ -32,8 +32,13 @@ inoremap <C-C> "+y
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
       \ }
-"Linting
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-" Auto check on save
-let g:pymode_lint_write = 1
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_user_command = {}
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_signs = 1
+noremap <C-P> :CtrlP ~<CR>
+nmap <C-P> :CtrlP ~<CR>
+let g:syntastic_java_checkers = ['checkstyle']
