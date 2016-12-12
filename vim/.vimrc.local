@@ -42,3 +42,4 @@ let g:syntastic_enable_signs = 1
 noremap <C-P> :CtrlP ~<CR>
 nmap <C-P> :CtrlP ~<CR>
 let g:syntastic_java_checkers = ['checkstyle']
+let &colorcolumn=join(range(101,999),",")

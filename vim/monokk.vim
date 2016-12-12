@@ -20,8 +20,10 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="molokai"
+hi SyntasticErrorLine guibg=#701020 
+hi SyntasticWarningLine guibg=#203070 
 
+let g:colors_name="molokai"
 if exists("g:molokai_original")
     let s:molokai_original = g:molokai_original
 else
@@ -270,8 +272,6 @@ if &t_Co > 255
        hi NonText         ctermfg=239
        hi SpecialKey      ctermfg=239
    endif
-   hi SyntasticErrorLine guibg=#701020 gui=undercurl
-   hi SyntasticWarningLine guibg=#203070 gui=undercurl
 end
 
 " Must be at the end, because of ctermbg=234 bug.
