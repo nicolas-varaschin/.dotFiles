@@ -1,16 +1,43 @@
 #! /bin/sh
-
 sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+xrandr --output VGA1
+xrandr --output HDMI2 --primary --left-of VGA1
 
-bspc config border_width         5
-bspc config window_gap          40
+bspc monitor VGA1 -d 1 2 3
+bspc monitor HDMI2 -d 4 5 6
 
+bspc config border_width         4
+bspc config window_gap          30
+
+bspc config focused_border_color "#6666ff"
+bspc config normal_border_color "#223366"
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+feh --bg-fill ~/Descargas/debian2.jpg
+Escritorio/lemon.sh &
 
-feh --bg-center ~/Downloads/back.jpg
-bash ~/.config/lemonbar/lemon.sh
-/usr/bin/vmware-user-suid-wrapper
+sleep 10
+bspc desktop -f '^2:^1'
+terminator &
+terminator &
+terminator &
+sleep 8
+bspc desktop -f '^1:^1'
+gvim  -S ~/Session.vim 
+sleep 8
+bspc desktop -f '^1:^3'
+terminator &
+terminator &
+spotify &
+sleep 8
+bspc desktop -f '^2:^3'
+sleep 10
+bspc desktop -f '^1:^2'
+firefox &
+sleep 5
+cd /home/nvaraschin/dev/sigehos-dev-environment/; ./sigehos.py -a &
+export http_proxy="http://20343183837:W2-o6egd@10.200.72.35:8080"
+
+

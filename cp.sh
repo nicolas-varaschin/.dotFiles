@@ -2,7 +2,7 @@ cp -v ~/.bashrc .
 cp -v ~/.vimrc* ./vim/
 cp -v ~/.vim/colors/monokk.vim ./vim/
 cp -v ~/.vim/syntax/python.vim ./vim/
-cp -v ~/.vim/ms.vim ./vim/
+cp -v ~/.vim/after/plugin/ms.vim ./vim/
 cp -v ~/lemon.sh ./lemonbar/ 
 cp -v ~/.gitconfig ./git/
 cp -v ~/git-prompt.sh ./git/

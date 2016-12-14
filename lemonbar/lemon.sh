@@ -87,3 +87,4 @@ while :; do
         #"%{B$BGREEN}$(weat)%{B-}"
     sleep 0.5
 done | lemonbar -p -g 1920x12
+

@@ -4,8 +4,6 @@ colorscheme monokk
 set guifont=Liberation\ Mono\ 9
 set guioptions-=r
 set vb t_vb=
-source /home/wert/.vim/ms.vim 
-behave mswin
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
   if exists(':NeoCompleteLock')==2
@@ -19,19 +17,17 @@ function! Multiple_cursors_after()
     exe 'NeoCompleteUnlock'
   endif
 endfunction
-
 set selection=inclusive
 set nofoldenable
 :imap jj <Esc>
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'itchyny/lightline.vim'
-vnoremap <C-C> "+y
-noremap <C-C> "+y
-noremap <C-S-C> :BD<CR>
 inoremap <C-C> "+y
+vnoremap <C-C> "+y
+noremap <C-S-C> :BD<CR>
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ }
+            \ 'colorscheme': 'jellybeans',
+            \ }
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_user_command = {}
@@ -39,7 +35,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_enable_signs = 1
-noremap <C-P> :CtrlP ~<CR>
-nmap <C-P> :CtrlP ~<CR>
 let g:syntastic_java_checkers = ['checkstyle']
 let &colorcolumn=join(range(101,999),",")
+set nobackup
+set nowritebackup
+set noswapfile
+autocmd FileType nerdtree setlocal nolist
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:ctrlp_custom_ignore =  {'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$', 'dir': '\.git$\|\.hg$\|\.svn|node_modules$\|\.vimviews$\|\.pylint.*\|\.cache$\|\.vimundo$\|Viejo$\|\.local$\|SmartBear$\|\.cinnamon$\|\.codeintel$'}
+set keymodel-=stopsel
+source ~/.vim/after/plugin/ms.vim 

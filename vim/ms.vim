@@ -102,3 +102,5 @@ if 1
   unlet s:save_cpo
 endif
 
+behave mswin
+vmap <C-c> "+y
