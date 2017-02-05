@@ -60,10 +60,9 @@ getmem(){
 }
 
 getcpu(){
-    cpuvar=`mpstat | awk '$12 ~ /[0-9.]+/ { print $1+$3+$4"%" }'`
+    cpuvar=`iostat 1 1 -yc | awk '$1 ~ /[0-9.]/ {print 100 - $6"%"}'`
     echo " %{F$BBLACK}${cpuvar} %{F-}"
 }
-
 
 net(){ # Connected or nah? ..
     ping=`ping 8.8.8.8 -c 1 | awk '/rtt/ {printf("%d\n",$4 + 0.5)}'`
@@ -83,7 +82,7 @@ while :; do
         " %{c} $(clock) %{r} |" \
         "`xsel -b | python -c 'import sys; print sys.stdin.read().replace("\n", "")[:50]'`|" \
         "%{B$BBLUE} VOL: $(vol) %{B-}|" \
-        "%{B$BWHITE} IP:$(getip) %{B-}|" 
+        "%{B$BWHITE} IP:$(getip) %{B-}|"
         #"%{B$BGREEN}$(weat)%{B-}"
     sleep 0.5
 done | lemonbar -p -g 1920x12
