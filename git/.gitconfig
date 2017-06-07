@@ -2,6 +2,23 @@
 	email = nicovaras22@gmail.com
 	name = Nico Varaschin
 [alias]
-    st = status
+    lg = log --graph --oneline --decorate --all
+    st = status -sb
     ci = commit
+    co = checkout
+    cob = checkout -b
+    cm = !git add -A && git commit -m
+    last = diff --cached HEAD^ --word-diff
     l = log -n 10 --pretty=format:\"%Cblue[%h]%Cgreen %<(25)%an%Creset%<(95)> %s %ar\"
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    publish = "!git push -u origin $(git branch-name)"
+    delete-remote = "!git push origin :$(git branch-name)"
+    merge-span = "!f() { echo $(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f1)$1$(git log -1 $2 --merges --pretty=format:%P | cut -d' ' -f2); }; f"
+    merge-log = "!git lg `git merge-span .. $1`"
+    merge-diff = "!git diff `git merge-span ... $1`"
+    unstage = reset HEAD
+
+[http]
+	proxy = http://20343183837:W2-o6egd@10.47.4.151:8123
+[https]
+	proxy = http://20343183837:W2-o6egd@10.47.4.151:8123
